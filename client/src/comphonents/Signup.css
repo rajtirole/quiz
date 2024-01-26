@@ -1,0 +1,15 @@
+*{
+    color: #474444;
+
+}
+.Container{
+    /* width: 50vw; */
+}
+.quiz{
+    font-weight: 800;
+}
+.signup{
+    display: flex;
+    flex-direction: column;
+    gap: 10%;
+}
