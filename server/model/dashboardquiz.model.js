@@ -3,71 +3,38 @@ import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 import { config } from 'dotenv';
 import crypto from 'crypto';
+import { type } from 'os';
 config();
-const dashboardSchema = new Schema({
+const dashboardquiz = new Schema({
+    createdBy:{
+        type: 'string',
+    },
     quizName:{
         type: 'string',
         required: [true, 'name is required'],
         trim:true
     },
-    updated: { type: Date, default: Date.now },
+  
 
     impression: {
         type: Number, 
 
     },
-    quizType: {
-        type: 'string',
-        default:'NA'
+    shareLink:{
+        type: 'string'
     },
-    options:{
-        options1:{
-           text:{ type: 'string'},
-           optionimage:{ type: 'string'},
-        },
-        options2:{
-            text:{ type: 'string'},
-            optionimage:{ type: 'string'},
-        },
-        options3:{
-            text:{ type: 'string'},
-            optionimage:{ type: 'string'},
-        },
-        options4:{
-            text:{ type: 'string'},
-            optionimage:{ type: 'string'},
-        }
-    },
-    avatar:{
-        public_id: {
-            type: 'string',
-        },
-        secure_url:{
-            type: 'string',
-        }
-    },
-    role:{
-        type: 'string',
-        enum: ['USER', 'ADMIN'],
-        default:'USER'
-    },
-    subscriptions:{
-        type:'boolean'
-    },
-    forgotPasswordToken:String,
-    forgotPasswordExpires:Date
-    // timestamps:true,
+    questionsLink:[{}],
 },
 {
-    timestamps:true
+    timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }
 });
-userSchema.pre('save',async function(next){
-    if(!this.isModified('password')){
-        return next();
-    }
-    this.password=await bcrypt.hash(this.password,10)
+// userSchema.pre('save',async function(next){
+//     if(!this.isModified('password')){
+//         return next();
+//     }
+//     this.password=await bcrypt.hash(this.password,10)
 
-})
+// })
 // userSchema.methods={
 //     generateJWTToken:async function (){
 //         return await jwt.sign({
@@ -95,5 +62,5 @@ userSchema.pre('save',async function(next){
 //         return token;
 //     }   
 // }
-const Dashboardmodel=model('dashboard',dashboardSchema)
-export default Dashboardmodel;
+const Dashboardquizmodel=model('dashboardquiz',dashboardquiz)
+export default Dashboardquizmodel;
