@@ -5,7 +5,7 @@ import { config } from 'dotenv';
 import crypto from 'crypto';
 import { type } from 'os';
 config();
-const dashboardquestion = new Schema({
+const Question = new Schema({
     createdBy:{
         type: 'string',
     },
@@ -15,76 +15,16 @@ const dashboardquestion = new Schema({
     quizId:{
         type: 'string',
     },
+
+
+
     shareLinkQuestion:{
         type: 'string'
     },
     question:{
         type: 'string'
     },
-    options:{
-        textOption:{
-            option1:{
-                type:'string'
-            },
-            option2:{
-                type:'string'
-            },
-            option3:{
-                type:'string'
-            },
-            option4:{
-                type:'string'
-            },
-        },
-        imageOption:{
-            option1:{
-                type:'string'
-            },
-            option2:{
-                type:'string'
-            },
-            option3:{
-                type:'string'
-            },
-            option4:{
-                type:'string'
-            },
-        },
-        textAndImageOption:{
-            option1:{
-               imageOption:{
-                type:'string'
-               },
-               textOption:{
-                type:'string'
-               }
-            },
-            option2:{
-                imageOption:{
-                    type:'string'
-                   },
-                   textOption:{
-                    type:'string'
-                   }
-            },
-            option3:{
-                imageOption:{
-                    type:'string'
-                   },
-                   textOption:{
-                    type:'string'
-                   }
-            },
-            option4:{
-                imageOption:{
-                    type:'string'
-                   },
-                   textOption:{
-                    type:'string'
-                   }
-            },
-        },
-    },
+    options:[{}],
     questiontype:{
         type: 'string',
     },
@@ -119,5 +59,73 @@ const dashboardquestion = new Schema({
 {
     timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }
 });
-const Dashboardquestionmodel=model('dashboardquestion',dashboardquestion)
-export default Dashboardquestionmodel;
+
+
+
+
+// {
+//     textOption:{
+//         option1:{
+//             type:'string'
+//         },
+//         option2:{
+//             type:'string'
+//         },
+//         option3:{
+//             type:'string'
+//         },
+//         option4:{
+//             type:'string'
+//         },
+//     },
+//     imageOption:{
+//         option1:{
+//             type:'string'
+//         },
+//         option2:{
+//             type:'string'
+//         },
+//         option3:{
+//             type:'string'
+//         },
+//         option4:{
+//             type:'string'
+//         },
+//     },
+//     textAndImageOption:{
+//         option1:{
+//            imageOption:{
+//             type:'string'
+//            },
+//            textOption:{
+//             type:'string'
+//            }
+//         },
+//         option2:{
+//             imageOption:{
+//                 type:'string'
+//                },
+//                textOption:{
+//                 type:'string'
+//                }
+//         },
+//         option3:{
+//             imageOption:{
+//                 type:'string'
+//                },
+//                textOption:{
+//                 type:'string'
+//                }
+//         },
+//         option4:{
+//             imageOption:{
+//                 type:'string'
+//                },
+//                textOption:{
+//                 type:'string'
+//                }
+//         },
+//     },
+// },
+const Questionmodel=model('Question',Question)
+export default Questionmodel;

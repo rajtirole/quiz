@@ -5,7 +5,7 @@ import { config } from 'dotenv';
 import crypto from 'crypto';
 import { type } from 'os';
 config();
-const dashboardquiz = new Schema({
+const Quiz = new Schema({
     createdBy:{
         type: 'string',
     },
@@ -62,5 +62,5 @@ const dashboardquiz = new Schema({
 //         return token;
 //     }   
 // }
-const Dashboardquizmodel=model('dashboardquiz',dashboardquiz)
-export default Dashboardquizmodel;
+const Quizmodel=model('Quiz',Quiz)
+export default Quizmodel;
