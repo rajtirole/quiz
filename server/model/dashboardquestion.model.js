@@ -15,9 +15,6 @@ const Question = new Schema({
     quizId:{
         type: 'string',
     },
-
-
-
     shareLinkQuestion:{
         type: 'string'
     },

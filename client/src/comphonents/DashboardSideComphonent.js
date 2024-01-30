@@ -1,11 +1,16 @@
 import React from 'react'
 import './DashboardSideComphonent.css'
 import axios from 'axios';
+import vectorimage from '../assets/Vector1.png'
+import { Outlet, Link } from "react-router-dom";
+
+
 function logoutHandler(){
     try {
-        let res=axios.get("http://localhost:5400/api/v1/user/logout")
-        console.log(res);
+        // let res=axios.get("http://localhost:5400/api/v1/user/logout")
+        // console.log(res);
         console.log('logout succesful');
+       
 
     } catch (error) {
         console.log(error);
@@ -13,17 +18,23 @@ function logoutHandler(){
     }
 }
 const DashboardSideComphonent = () => {
+  
   return (
     <div className='DashboardSideContainer' >
-        <div>QUIZZIE</div>
+        <div className='quizzie'>QUIZZIE</div>
         <div className='SideBarContainer'>
-            <div>Dashboard</div>
-            <div>Analytics</div>
-            <div>Create Quiz</div>
+            <div> 
+            <Link to="/dashboard">Dashboard</Link>
+</div>
+            <div><Link to="/analysis">Analytics</Link></div>
+            <div><Link to="/createQuiz">Create Quiz</Link></div>
 
         </div>
        
-        <div onClick={logoutHandler}>LOGOUT</div>
+        <div className='logout' onClick={logoutHandler}>
+        <img src={vectorimage}/>
+        <div>  <Link to="/">LOGOUT</Link></div>
+           </div>
     </div>
   )
 }

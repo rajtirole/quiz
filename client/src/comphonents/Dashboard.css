@@ -14,3 +14,17 @@
     justify-content: space-around;
     flex-direction: column;
 }
+.DashboardTrending{
+  display: flex;
+  flex-direction: column;
+}
+.quizcontainer{
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+    grid-template-columns: auto auto auto auto;
+    gap: 2rem;
+    background-color: #9b8e8e;
+}
+.quizz{
+    background-color: #ffff;
+}

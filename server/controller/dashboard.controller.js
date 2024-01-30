@@ -3,8 +3,9 @@ import Dashboardquestionmodel from "../model/dashboardquestion.model.js";
 const getDashboardData=async()=>{
 console.log('get dashboard data');
 try {
+    const question=await Dashboardquizmodel.create()
 
-    const dataa = await Dashboardquestionmodel.create({
+    const quiz = await Dashboardquestionmodel.create({
         quizname:'quiznme',
         question:'falskdfl',
       });
